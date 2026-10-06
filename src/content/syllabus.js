@@ -1,0 +1,561 @@
+/**
+ * Plan du cours « Python – MSc DSBA » (PDF de 319 diapositives, 8 séances).
+ *
+ * Chaque séance liste les notions de ses diapositives et les leçons du site qui les traitent.
+ * `keywords` : expressions régulières (insensibles à la casse) qui doivent apparaître dans le
+ * contenu de ces leçons (théorie, énoncés ou code) : `npm run check-content` le vérifie, ainsi
+ * que le fait que chaque leçon du site est rattachée à au moins une notion.
+ *
+ * Diapositives volontairement non reprises : présentation de l'équipe, modalités pratiques et
+ * d'évaluation, bibliographie, idées de projets, installation de Python / d'un environnement virtuel.
+ */
+export const SESSIONS = [
+  {
+    number: 1,
+    title: { fr: "Expressions, variables, types, branchements, itération", en: "Expressions, variables, types, branching, iteration" },
+    slides: "1–67",
+    topics: [
+      {
+        label: { fr: "Python : histoire, usages, interpréteur, console, scripts, IDE et notebooks", en: "Python: history, uses, interpreter, console, scripts, IDEs and notebooks" },
+        slides: "8–20",
+        lessons: ["m1-l0"],
+        keywords: ["Guido", "interpr", "notebook", "IDE", "print\\("],
+      },
+      {
+        label: { fr: "Anatomie d'un programme : commentaires, docstrings, blocs et indentation", en: "Anatomy of a program: comments, docstrings, blocks and indentation" },
+        slides: "21–22, 35",
+        lessons: ["m1-l0", "m2-l1"],
+        keywords: ["docstring", "indent", "#"],
+      },
+      {
+        label: { fr: "Variables, typage dynamique, types de base, None, complexes, duck typing", en: "Variables, dynamic typing, basic types, None, complex numbers, duck typing" },
+        slides: "23–26, 61–62",
+        lessons: ["m1-l1"],
+        keywords: ["type\\(", "None", "complex", "duck", "bool"],
+      },
+      {
+        label: { fr: "Opérateurs arithmétiques, de comparaison et logiques", en: "Arithmetic, comparison and logical operators" },
+        slides: "27–28, 33",
+        lessons: ["m1-l2", "m2-l1"],
+        keywords: ["//", "%", "\\*\\*", "divmod", "\\band\\b", "\\bor\\b"],
+      },
+      {
+        label: { fr: "Appeler des fonctions, fonctions intégrées", en: "Calling functions, built-in functions" },
+        slides: "29, 63",
+        lessons: ["m1-l2", "m1-l4"],
+        keywords: ["abs\\(", "round\\(", "len\\("],
+      },
+      {
+        label: { fr: "Chaînes de caractères : indexation, découpage, méthodes, f-strings", en: "Strings: indexing, slicing, methods, f-strings" },
+        slides: "30–31",
+        lessons: ["m1-l3"],
+        keywords: ["upper\\(", "split\\(", "join\\(", "f\"", "\\[::-1\\]"],
+      },
+      {
+        label: { fr: "Conditions if / elif / else et opérateur ternaire", en: "if / elif / else conditions and the ternary operator" },
+        slides: "32–34, 65",
+        lessons: ["m2-l1"],
+        keywords: ["elif", "else", " if .* else "],
+      },
+      {
+        label: { fr: "Boucles while et for, range, break et continue, else sur les boucles", en: "while and for loops, range, break and continue, else on loops" },
+        slides: "36–38",
+        lessons: ["m2-l2", "m2-l3"],
+        keywords: ["while", "range\\(", "break", "continue"],
+      },
+      {
+        label: { fr: "Équivalence entre structures de boucle", en: "Equivalence between loop structures" },
+        slides: "39",
+        lessons: ["m2-l3"],
+        keywords: ["quivalen"],
+      },
+      {
+        label: { fr: "Parties d'un programme, imports et fonctions simples", en: "Program parts, imports and simple functions" },
+        slides: "40–42, 64, 66–67",
+        lessons: ["m1-l0", "m3-l1", "m5-l5"],
+        keywords: ["import", "def ", "return", "as "],
+      },
+      {
+        label: { fr: "Hands-on 1 à 13 : greetings, Fahrenheit, âge, multiplication, intérêts, âge légal, bissextile, devinette, entraîneur, PGCD, HH:MM:SS, Collatz, nombres premiers", en: "Hands-on 1 to 13: greetings, Fahrenheit, age, multiplication, interest, legal age, leap year, guessing game, trainer, GCD, HH:MM:SS, Collatz, prime numbers" },
+        slides: "44–56",
+        lessons: ["m1-l0", "m1-l2", "m1-l4", "m2-l1", "m2-l2", "m2-l3", "m3-l1"],
+        keywords: ["Hello", "Fahrenheit", "bissextile", "devin", "PGCD", "Collatz", "premier", "3600", "intérêts"],
+      },
+      {
+        label: { fr: "Hands-on π : séries convergentes, erreur relative en échelle log", en: "Hands-on π: converging series, relative error on a log scale" },
+        slides: "57",
+        lessons: ["m8-l5"],
+        keywords: ["Machin", "semilogy|log"],
+      },
+    ],
+  },
+  {
+    number: 2,
+    title: { fr: "Fonctions et structures de données", en: "Functions and data structures" },
+    slides: "68–125",
+    topics: [
+      {
+        label: { fr: "Fonctions : définition, paramètres, return, valeurs par défaut", en: "Functions: definition, parameters, return, default values" },
+        slides: "75–77",
+        lessons: ["m3-l1", "m3-l2"],
+        keywords: ["def ", "return", "=None|= ?0\\)"],
+      },
+      {
+        label: { fr: "Hands-on : zéro d'une fonction par dichotomie, fonctions en paramètre", en: "Hands-on: zero of a function by dichotomy, functions as parameters" },
+        slides: "78–82",
+        lessons: ["m3-l1", "m3-l2"],
+        keywords: ["dichotom", "eps"],
+      },
+      {
+        label: { fr: "Structure et flot d'un programme, pile d'appels", en: "Program structure and flow, call stack" },
+        slides: "83–84",
+        lessons: ["m3-l1"],
+        keywords: ["pile d'appels", "call stack", "main\\(\\)"],
+      },
+      {
+        label: { fr: "Listes : mutabilité, méthodes, découpage, enumerate", en: "Lists: mutability, methods, slicing, enumerate" },
+        slides: "85–92",
+        lessons: ["m4-l1"],
+        keywords: ["append", "enumerate", "\\[::", "sort"],
+      },
+      {
+        label: { fr: "Hands-on 3 et 4 : jeu de cartes, inverser, palindromes ; listes et tuples ; spy game", en: "Hands-on 3 and 4: card deck, reversing, palindromes; lists and tuples; spy game" },
+        slides: "89, 91, 112, 116",
+        lessons: ["m4-l1"],
+        keywords: ["deck", "palindrom", "spy_game", "transpose"],
+      },
+      {
+        label: { fr: "Tuples : immuabilité, déballage, renvoyer plusieurs valeurs ; Hands-on 5 et 6", en: "Tuples: immutability, unpacking, returning several values; Hands-on 5 and 6" },
+        slides: "93–96",
+        lessons: ["m4-l2"],
+        keywords: ["tuple", "root_quadratic", "CATEGORIES", "rotate"],
+      },
+      {
+        label: { fr: "Dictionnaires : clés hachables, parcours, imbrication ; Hands-on 7 (login)", en: "Dictionaries: hashable keys, iteration, nesting; Hands-on 7 (login)" },
+        slides: "97–99",
+        lessons: ["m4-l3"],
+        keywords: ["items\\(\\)", "hash", "find_user", "get\\("],
+      },
+      {
+        label: { fr: "Ensembles : opérations, doublons (Hands-on 8), pays voisins et routes", en: "Sets: operations, duplicates (Hands-on 8), neighbouring countries and routes" },
+        slides: "100–102",
+        lessons: ["m4-l4"],
+        keywords: ["set\\(", "remove_duplicates", "neighbors", "Floyd"],
+      },
+      {
+        label: { fr: "Compréhensions de liste, de dictionnaire, générateurs ; Hands-on 9 et 10", en: "List and dictionary comprehensions, generators; Hands-on 9 and 10" },
+        slides: "103–106",
+        lessons: ["m4-l5"],
+        keywords: ["for .* in .*\\]", "\\{.*:.* for ", "generator|génératrice", "pattern"],
+      },
+      {
+        label: { fr: "Types et conversions", en: "Types and conversions" },
+        slides: "107–108",
+        lessons: ["m1-l4"],
+        keywords: ["int\\(", "float\\(", "str\\(", "ValueError"],
+      },
+      {
+        label: { fr: "Exercices sur les chaînes : pangrammes, majuscules / minuscules, e-mail, hashtag", en: "String exercises: pangrams, upper / lower case, e-mail, hashtag" },
+        slides: "113–115",
+        lessons: ["m1-l3", "m4-l4"],
+        keywords: ["pangram", "isupper", "@", "hashtag"],
+      },
+      {
+        label: { fr: "Hands-on 14 et 15 : π par Monte-Carlo, drapeau néerlandais avec Pillow", en: "Hands-on 14 and 15: π by Monte Carlo, Dutch flag with Pillow" },
+        slides: "117–118",
+        lessons: ["m8-l5", "m9-l5"],
+        keywords: ["Monte.Carlo", "putpixel", "rotat"],
+      },
+      {
+        label: { fr: "Passage d'arguments : *args, **kwargs, déballage", en: "Argument passing: *args, **kwargs, unpacking" },
+        slides: "120",
+        lessons: ["m3-l2", "m6-l4"],
+        keywords: ["\\*args", "\\*\\*kwargs"],
+      },
+      {
+        label: { fr: "Bibliothèque standard, pip, requirements.txt et PyPI", en: "Standard library, pip, requirements.txt and PyPI" },
+        slides: "121–125",
+        lessons: ["m1-l0", "m5-l5"],
+        keywords: ["pip install", "requirements\\.txt", "PyPI", "collections"],
+      },
+    ],
+  },
+  {
+    number: 3,
+    title: { fr: "Fichiers, système, modules et exceptions", en: "Files, system, modules and exceptions" },
+    slides: "126–149",
+    topics: [
+      {
+        label: { fr: "Système de fichiers : arborescence, chemins absolus et relatifs, dossier courant", en: "File system: tree, absolute and relative paths, current directory" },
+        slides: "129",
+        lessons: ["m5-l1", "m5-l2"],
+        keywords: ["absolu", "relati", "getcwd", "\\.\\."],
+      },
+      {
+        label: { fr: "Terminal : ls, pwd, cd, pushd, mkdir, rm, cat, wc, grep…", en: "Terminal: ls, pwd, cd, pushd, mkdir, rm, cat, wc, grep…" },
+        slides: "130",
+        lessons: ["m5-l2"],
+        keywords: ["pwd", "pushd", "grep", "\\bwc\\b"],
+      },
+      {
+        label: { fr: "Variables d'environnement et PATH", en: "Environment variables and PATH" },
+        slides: "131",
+        lessons: ["m5-l2"],
+        keywords: ["os\\.environ", "PATH"],
+      },
+      {
+        label: { fr: "Lire et écrire des fichiers : open, with, modes r / w / a / b", en: "Reading and writing files: open, with, modes r / w / a / b" },
+        slides: "132–133",
+        lessons: ["m5-l1"],
+        keywords: ["with open", "\"a\"", "readline", "encoding"],
+      },
+      {
+        label: { fr: "os, os.path et glob : explorer le système de fichiers", en: "os, os.path and glob: exploring the file system" },
+        slides: "134",
+        lessons: ["m5-l2"],
+        keywords: ["os\\.path", "glob\\.glob", "os\\.chdir", "pathlib"],
+      },
+      {
+        label: { fr: "Sérialisation : pickle, JSON, HDF5", en: "Serialisation: pickle, JSON, HDF5" },
+        slides: "135–136",
+        lessons: ["m5-l3"],
+        keywords: ["pickle\\.dump", "json\\.load", "HDF5", "dumps"],
+      },
+      {
+        label: { fr: "Modules et packages : import, __init__.py, __name__, structure d'un projet", en: "Modules and packages: import, __init__.py, __name__, project structure" },
+        slides: "137–138",
+        lessons: ["m5-l5"],
+        keywords: ["__init__\\.py", "__main__", "README", "sys\\.path"],
+      },
+      {
+        label: { fr: "Exceptions : try / except / else / finally, raise, exceptions personnalisées", en: "Exceptions: try / except / else / finally, raise, custom exceptions" },
+        slides: "139–140",
+        lessons: ["m5-l4"],
+        keywords: ["finally", "raise", "except .* as e", "class .*\\(Exception\\)"],
+      },
+      {
+        label: { fr: "time et datetime : timestamps, sleep, dates et durées", en: "time and datetime: timestamps, sleep, dates and durations" },
+        slides: "141–142",
+        lessons: ["m5-l5"],
+        keywords: ["time\\.sleep", "datetime\\.now|datetime.now", "timedelta", "fromtimestamp"],
+      },
+      {
+        label: { fr: "Exercices : Fibonacci, Greetings Again, statistiques de mots d'un livre, compte bancaire", en: "Exercises: Fibonacci, Greetings Again, book word statistics, bank account" },
+        slides: "144–147",
+        lessons: ["m5-l1", "m5-l4", "m5-l5", "m6-l5", "m11-l3"],
+        keywords: ["fib", "Pride and Prejudice", "Counter", "SoldeInsuffisant", "salutation"],
+      },
+      {
+        label: { fr: "Hands-on : la carte de France (lecture, dictionnaires imbriqués, dessin)", en: "Hands-on: the map of France (reading, nested dictionaries, drawing)" },
+        slides: "148–149",
+        lessons: ["m5-l1", "m5-l3", "m9-l4"],
+        keywords: ["france_lite", "coords", "next"],
+      },
+    ],
+  },
+  {
+    number: 4,
+    title: { fr: "Fonctions avancées, portées, aliasing, mutabilité, copies", en: "Advanced functions, scopes, aliasing, mutability, cloning" },
+    slides: "150–181",
+    topics: [
+      {
+        label: { fr: "Dans l'ordinateur : CPU, RAM, disque, fichiers texte et binaires, programmes", en: "Inside the computer: CPU, RAM, disk, text and binary files, programs" },
+        slides: "152–155",
+        lessons: ["m6-l1"],
+        keywords: ["CPU", "RAM", "binaire|binary"],
+      },
+      {
+        label: { fr: "Console et explorateur de fichiers, python -m http.server, lancer l'interpréteur", en: "Console and file browser, python -m http.server, running the interpreter" },
+        slides: "156–158",
+        lessons: ["m6-l1", "m5-l2"],
+        keywords: ["http\\.server", "python3 -m", "python3 -c"],
+      },
+      {
+        label: { fr: "Comment l'interpréteur exécute un programme, ligne par ligne ; Python Tutor", en: "How the interpreter runs a program, line by line; Python Tutor" },
+        slides: "159–168",
+        lessons: ["m6-l1"],
+        keywords: ["affine", "Python ?Tutor"],
+      },
+      {
+        label: { fr: "Portées : locale, globale, global, nonlocal, pas de portée de bloc", en: "Scopes: local, global, global, nonlocal, no block scope" },
+        slides: "169–172",
+        lessons: ["m3-l3", "m6-l2"],
+        keywords: ["global ", "nonlocal", "LEGB"],
+      },
+      {
+        label: { fr: "Identité et copies : id(), is, copy, deepcopy, __eq__ ; Hands-on 11", en: "Identity and copies: id(), is, copy, deepcopy, __eq__; Hands-on 11" },
+        slides: "173–176",
+        lessons: ["m6-l3"],
+        keywords: ["id\\(", "deepcopy", "__eq__", "append_to_nested_list"],
+      },
+      {
+        label: { fr: "Fonctions de première classe et fermetures lexicales", en: "First-class functions and lexical closures" },
+        slides: "177",
+        lessons: ["m6-l1", "m6-l2"],
+        keywords: ["lambda", "fermeture|closure", "return add|return ajouter"],
+      },
+      {
+        label: { fr: "Récursivité et pile d'appels", en: "Recursion and the call stack" },
+        slides: "178",
+        lessons: ["m6-l5"],
+        keywords: ["fact\\(", "RecursionError", "pile d'appels"],
+      },
+      {
+        label: { fr: "Mots-clés réservés et noms intégrés", en: "Reserved keywords and built-in names" },
+        slides: "179",
+        lessons: ["m6-l1"],
+        keywords: ["kwlist", "yield", "built-in"],
+      },
+      {
+        label: { fr: "Valeurs par défaut mutables, *args, arguments nommés obligatoires", en: "Mutable default values, *args, keyword-only arguments" },
+        slides: "120, 207–208",
+        lessons: ["m6-l4"],
+        keywords: ["__defaults__", "is None", "\\*,"],
+      },
+      {
+        label: { fr: "Hands-on 13 : le jeu de Nim", en: "Hands-on 13: the Nim game" },
+        slides: "181",
+        lessons: ["m6-l1"],
+        keywords: ["Nim", "coup_gagnant"],
+      },
+    ],
+  },
+  {
+    number: 5,
+    title: { fr: "Programmation orientée objet et interfaces graphiques", en: "Object-oriented programming and GUIs" },
+    slides: "182–213",
+    topics: [
+      {
+        label: { fr: "Classes, objets, instances ; les 4 piliers (abstraction, encapsulation, héritage, polymorphisme)", en: "Classes, objects, instances; the 4 pillars (abstraction, encapsulation, inheritance, polymorphism)" },
+        slides: "184–187",
+        lessons: ["m7-l1", "m7-l3"],
+        keywords: ["encapsulation", "abstraction", "polymorphi", "instance"],
+      },
+      {
+        label: { fr: "Définir une classe : __init__, self, attributs, méthodes, envoi de messages", en: "Defining a class: __init__, self, attributes, methods, message passing" },
+        slides: "188–191",
+        lessons: ["m7-l1"],
+        keywords: ["class ", "__init__", "self\\."],
+      },
+      {
+        label: { fr: "Méthodes spéciales : __str__, __repr__, __eq__, opérateurs…", en: "Special methods: __str__, __repr__, __eq__, operators…" },
+        slides: "192–193",
+        lessons: ["m7-l2"],
+        keywords: ["__str__", "__repr__", "__add__|__eq__"],
+      },
+      {
+        label: { fr: "Héritage, super(), les types Python sont des classes", en: "Inheritance, super(), Python types are classes" },
+        slides: "194–196",
+        lessons: ["m7-l3"],
+        keywords: ["super\\(\\)", "isinstance"],
+      },
+      {
+        label: { fr: "Membres d'instance et membres de classe, composition", en: "Instance members vs class members, composition" },
+        slides: "197",
+        lessons: ["m7-l4"],
+        keywords: ["attributs? de classe|class attribute", "compos"],
+      },
+      {
+        label: { fr: "Architecture : 3 tiers, MVC", en: "Architecture: 3 tiers, MVC" },
+        slides: "198–201",
+        lessons: ["m7-l5"],
+        keywords: ["MVC", "tiers"],
+      },
+      {
+        label: { fr: "Interfaces graphiques : Tk, widgets, callbacks", en: "GUIs: Tk, widgets, callbacks" },
+        slides: "202–205",
+        lessons: ["m7-l5"],
+        keywords: ["tkinter", "callback", "Button"],
+      },
+      {
+        label: { fr: "Python avancé : nombre variable d'arguments", en: "Advanced Python: variable number of arguments" },
+        slides: "206–208",
+        lessons: ["m6-l4"],
+        keywords: ["\\*args", "\\*\\*kwargs"],
+      },
+      {
+        label: { fr: "Exercices : géométrie 2D, distributeur automatique, compte bancaire", en: "Exercises: 2D geometry, vending machine, bank account" },
+        slides: "210–213",
+        lessons: ["m7-l1", "m7-l2", "m7-l3", "m7-l4"],
+        keywords: ["Point", "Vending|distributeur", "Account|compte"],
+      },
+    ],
+  },
+  {
+    number: 6,
+    title: { fr: "NumPy, Pandas et visualisation", en: "NumPy, Pandas and visualisation" },
+    slides: "214–246",
+    topics: [
+      {
+        label: { fr: "NumPy : tableaux, formes, axes", en: "NumPy: arrays, shapes, axes" },
+        slides: "216–219",
+        lessons: ["m8-l1", "m8-l2"],
+        keywords: ["np\\.array", "shape", "reshape", "axis"],
+      },
+      {
+        label: { fr: "NumPy : indexation et découpage", en: "NumPy: indexing and slicing" },
+        slides: "220–221",
+        lessons: ["m8-l2"],
+        keywords: ["\\[:, ?\\d\\]|\\[:, ?0\\]", "\\[1:"],
+      },
+      {
+        label: { fr: "NumPy : broadcasting ; Hands-on : centrer des courbes", en: "NumPy: broadcasting; Hands-on: curve centering" },
+        slides: "222–225",
+        lessons: ["m8-l3"],
+        keywords: ["broadcast", "Curve Centering"],
+      },
+      {
+        label: { fr: "NumPy : masques et filtres, transposer, concaténer, trier, tableaux structurés", en: "NumPy: masking and filtering, transposing, concatenating, sorting, structured arrays" },
+        slides: "226–228",
+        lessons: ["m8-l4"],
+        keywords: ["mask|masque", "concatenate", "argsort|np\\.sort", "dtype=\\["],
+      },
+      {
+        label: { fr: "Aléatoire et simulations : Monte-Carlo, places d'avion", en: "Randomness and simulations: Monte Carlo, flight seats" },
+        slides: "117, 238",
+        lessons: ["m8-l5"],
+        keywords: ["random", "seat|place"],
+      },
+      {
+        label: { fr: "Pandas : Series, DataFrame, index, créer et afficher des données", en: "Pandas: Series, DataFrame, index, creating and viewing data" },
+        slides: "229–232",
+        lessons: ["m9-l1"],
+        keywords: ["DataFrame", "Series", "head\\(", "read_csv"],
+      },
+      {
+        label: { fr: "Pandas : opérations et valeurs manquantes", en: "Pandas: operations and missing values" },
+        slides: "233–234",
+        lessons: ["m9-l2"],
+        keywords: ["isna|isnull", "fillna", "dropna", "drop_duplicates"],
+      },
+      {
+        label: { fr: "Pandas : exploration, sélection, apply, groupby ; Hands-on : taux de change", en: "Pandas: exploration, selection, apply, groupby; Hands-on: exchange rates" },
+        slides: "235–237",
+        lessons: ["m9-l3"],
+        keywords: ["describe\\(", "\\.loc", "apply\\(", "groupby"],
+      },
+      {
+        label: { fr: "Visualisation avec Matplotlib : courbes, personnalisation, sous-graphiques", en: "Visualisation with Matplotlib: curves, customisation, subplots" },
+        slides: "239–241",
+        lessons: ["m9-l4"],
+        keywords: ["plt\\.", "xlabel", "subplot", "legend"],
+      },
+      {
+        label: { fr: "Seaborn et graphiques avec Pandas", en: "Seaborn and plotting with Pandas" },
+        slides: "242–244",
+        lessons: ["m9-l5", "m9-l4"],
+        keywords: ["seaborn|sns\\.", "\\.plot\\(", "hist"],
+      },
+      {
+        label: { fr: "Exercices : statistiques de distributeurs, manipulation d'images", en: "Exercises: vending machine statistics, image manipulation" },
+        slides: "245–246",
+        lessons: ["m9-l3", "m9-l5"],
+        keywords: ["vending", "Image", "PIL"],
+      },
+    ],
+  },
+  {
+    number: 7,
+    title: { fr: "Code pythonique et efficacité des programmes", en: "Pythonic code and program efficiency" },
+    slides: "247–278",
+    topics: [
+      {
+        label: { fr: "Expressions génératrices vs compréhensions, yield, protocole d'itération", en: "Generator expressions vs comprehensions, yield, iterator protocol" },
+        slides: "249–252",
+        lessons: ["m10-l1"],
+        keywords: ["yield", "__next__", "__iter__", "StopIteration"],
+      },
+      {
+        label: { fr: "Programmation fonctionnelle : map, filter, reduce, lambda", en: "Functional programming: map, filter, reduce, lambda" },
+        slides: "253–254",
+        lessons: ["m10-l2"],
+        keywords: ["map\\(", "filter\\(", "reduce", "lambda"],
+      },
+      {
+        label: { fr: "Assertions et gestionnaires de contexte (__enter__, __exit__)", en: "Assertions and context managers (__enter__, __exit__)" },
+        slides: "255–256",
+        lessons: ["m10-l3"],
+        keywords: ["assert ", "__enter__", "__exit__"],
+      },
+      {
+        label: { fr: "Tests unitaires, logging, débogage", en: "Unit testing, logging, debugging" },
+        slides: "257–260",
+        lessons: ["m10-l3"],
+        keywords: ["unittest", "logging", "pdb|breakpoint"],
+      },
+      {
+        label: { fr: "argparse : lire la ligne de commande", en: "argparse: reading the command line" },
+        slides: "261",
+        lessons: ["m10-l4", "m5-l5"],
+        keywords: ["argparse", "add_argument", "parse_args"],
+      },
+      {
+        label: { fr: "Efficacité : match / case, se passer des boucles, multiprocessing, Numba", en: "Efficiency: match / case, saying goodbye to loops, multiprocessing, Numba" },
+        slides: "262–269",
+        lessons: ["m10-l5", "m10-l4"],
+        keywords: ["match ", "case ", "multiprocessing", "Numba", "timeit|perf_counter"],
+      },
+      {
+        label: { fr: "Bonnes pratiques : Zen de Python, PEP 8, docstrings, revue de code, git, annotations de type, architecture d'un projet", en: "Good practices: Zen of Python, PEP 8, docstrings, code review, git, type hints, project architecture" },
+        slides: "270–278",
+        lessons: ["m10-l4"],
+        keywords: ["import this", "PEP ?8", "git", "-> ", "requirements"],
+      },
+    ],
+  },
+  {
+    number: 8,
+    title: { fr: "Applications web", en: "Web applications" },
+    slides: "279–319",
+    topics: [
+      {
+        label: { fr: "Motivation : un distributeur en ligne ; clients et serveurs", en: "Motivation: an online vending machine; clients and servers" },
+        slides: "282–285",
+        lessons: ["m11-l1"],
+        keywords: ["client", "serveur|server", "distributeur|vending|machine"],
+      },
+      {
+        label: { fr: "Vie d'une requête HTTP : Internet, adresse IP, DNS, port, TCP", en: "Life of an HTTP request: the Internet, IP address, DNS, port, TCP" },
+        slides: "286–293",
+        lessons: ["m11-l1", "m11-l2"],
+        keywords: ["\\bIP\\b", "DNS", "port", "TCP"],
+      },
+      {
+        label: { fr: "Anatomie d'une URL", en: "Anatomy of a URL" },
+        slides: "290",
+        lessons: ["m11-l2"],
+        keywords: ["urlparse|urllib", "query", "scheme|schéma"],
+      },
+      {
+        label: { fr: "Requête et réponse HTTP : méthodes, codes, en-têtes, paquets, rendu HTML", en: "HTTP request and response: methods, status codes, headers, packets, HTML rendering" },
+        slides: "294–297",
+        lessons: ["m11-l1"],
+        keywords: ["GET", "POST", "200", "404", "HTML"],
+      },
+      {
+        label: { fr: "Sérialisation des échanges : JSON", en: "Serialising exchanges: JSON" },
+        slides: "298",
+        lessons: ["m11-l3", "m11-l4"],
+        keywords: ["json"],
+      },
+      {
+        label: { fr: "Faire des requêtes : navigateur, curl, le paquet requests", en: "Making requests: browser, curl, the requests package" },
+        slides: "299–302",
+        lessons: ["m11-l3"],
+        keywords: ["requests", "curl", "status_code", "raise_for_status"],
+      },
+      {
+        label: { fr: "Écrire un serveur : Flask, routes, paramètres, gabarits", en: "Writing a server: Flask, routes, parameters, templates" },
+        slides: "303–307, 317",
+        lessons: ["m11-l4"],
+        keywords: ["Flask", "@app\\.route", "render_template", "jsonify"],
+      },
+      {
+        label: { fr: "Exercice : le distributeur automatique en ligne", en: "Exercise: the online vending machine" },
+        slides: "308–310",
+        lessons: ["m11-l3", "m11-l4"],
+        keywords: ["machine", "buy|achat"],
+      },
+    ],
+  },
+];

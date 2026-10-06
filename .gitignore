@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+*.local
+scripts/content.json
+
+# Version compilée : regénérée par GitHub Actions à chaque push (voir .github/workflows/deploy.yml)
+dist
+
+# Configuration locale de l'application Claude
+.claude
